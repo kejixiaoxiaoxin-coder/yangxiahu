@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,27 @@
     <title>养虾户 AI Agent - 定价页</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
         body { 
             background-color: #0a0a0a; 
             color: #e5e5e5; 
             font-family: 'Inter', sans-serif;
         }
+        
+        .header-bg {
+            background-color: #0a0a0a;
+            border-color: #27272a;
+        }
+        
+        .nav-link {
+            color: #9ca3af;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #fff;
+        }
+        
         .card-gradient { 
             background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
             border: 1px solid #262626;
@@ -19,6 +35,7 @@
         .card-gradient:hover {
             border-color: #3f3f46;
         }
+        
         .btn-primary { 
             background-color: #ef4444; 
             transition: all 0.3s ease; 
@@ -28,9 +45,11 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
         }
+        
         .glow-red {
             box-shadow: 0 0 40px rgba(239, 68, 68, 0.15);
         }
+        
         .tool-capsule { 
             background: rgba(255, 255, 255, 0.05); 
             border: 1px solid rgba(255, 255, 255, 0.1); 
@@ -42,22 +61,31 @@
             border-color: rgba(255, 255, 255, 0.3); 
             transform: translateY(-3px); 
         }
+        
+        .icon-glass {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+        }
+        
+        .section-bg {
+            background-color: rgba(24, 24, 27, 0.5);
+        }
     </style>
 </head>
 <body class="min-h-screen">
     <!-- Header -->
-    <header class="border-b border-zinc-800">
+    <header class="header-bg border-b fixed top-0 left-0 right-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-2">
-                <span class="text-2xl">🦐</span>
+                <span class="text-2xl p-2 rounded-xl icon-glass">🦐</span>
                 <span class="text-xl font-bold">养虾户</span>
             </a>
             <div class="flex items-center gap-6">
-                <a href="index.html" class="text-sm text-zinc-400 hover:text-white transition">首页</a>
-                <a href="#products" class="text-sm text-zinc-400 hover:text-white transition">产品</a>
-                <a href="tools.html" class="text-sm text-zinc-400 hover:text-white transition">技术栈</a>
-                <a href="join.html" class="text-sm text-zinc-400 hover:text-white transition">社区</a>
-                <a href="#contact" class="text-sm text-zinc-400 hover:text-white transition">联系我们</a>
+                <a href="index.html" class="nav-link text-sm">首页</a>
+                <a href="#products" class="nav-link text-sm">产品</a>
+                <a href="tools.html" class="nav-link text-sm">技术栈</a>
+                <a href="join.html" class="nav-link text-sm">社区</a>
+                <a href="#contact" class="nav-link text-sm">联系我们</a>
             </div>
         </div>
     </header>
@@ -68,27 +96,27 @@
             <h1 class="text-4xl md:text-5xl font-bold mb-6">
                 让你的 <span class="text-red-500">AI 助手</span> 更聪明
             </h1>
-            <p class="text-zinc-400 text-lg mb-8">
+            <p class="text-gray-400 text-lg mb-8">
                 30 分钟配置好 OpenClaw AI 助手<br>
                 每天自动推送 AI 新闻、加密行情
             </p>
-            <a href="#products" class="btn-primary px-8 py-3 rounded-full font-semibold inline-block">
+            <a href="#products" class="btn-primary px-8 py-3 rounded-full font-semibold inline-block text-white">
                 查看方案
             </a>
             
             <!-- Social Links -->
             <footer class="w-full py-12 flex justify-center items-center gap-4 z-10">
-                <a href="https://x.com/0xMoBai" target="_blank" class="flex items-center gap-3 px-8 py-3 rounded-full bg-[#1a1a1a] border border-white/5 hover:border-white/20 hover:bg-[#222] transition-all duration-300 group">
-                    <svg class="w-5 h-5 fill-gray-400 group-hover:fill-white transition-colors" viewBox="0 0 24 24">
+                <a href="https://x.com/0xMoBai" target="_blank" class="flex items-center gap-3 px-8 py-3 rounded-full card-gradient border border-white/5 hover:border-white/20 transition-all duration-300 group">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.292 19.494h2.039L6.486 3.24H4.298l13.311 17.407z"/>
                     </svg>
-                    <span class="text-gray-400 group-hover:text-white font-medium">@0xMoBai</span>
+                    <span class="text-gray-400 group-hover:text-white font-medium transition-colors">@0xMoBai</span>
                 </a>
-                <a href="https://t.me/MoBai_BTC" target="_blank" class="flex items-center gap-3 px-8 py-3 rounded-full bg-[#1a1a1a] border border-white/5 hover:border-white/20 hover:bg-[#222] transition-all duration-300 group">
-                    <svg class="w-5 h-5 fill-gray-400 group-hover:fill-white transition-colors" viewBox="0 0 24 24">
+                <a href="https://t.me/MoBai_BTC" target="_blank" class="flex items-center gap-3 px-8 py-3 rounded-full card-gradient border border-white/5 hover:border-white/20 transition-all duration-300 group">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-1.942 9.156c-.145.651-.533.811-1.077.505l-2.958-2.18-1.427 1.373c-.158.158-.29.29-.594.29l.213-3.024 5.502-4.97c.239-.213-.052-.331-.371-.119l-6.8 4.282-2.932-.916c-.637-.199-.649-.637.133-.942l11.45-4.413c.53-.199 1 .123.796 1.158z"/>
                     </svg>
-                    <span class="text-gray-400 group-hover:text-white font-medium">Telegram</span>
+                    <span class="text-gray-400 group-hover:text-white font-medium transition-colors">Telegram</span>
                 </a>
             </footer>
         </div>
@@ -98,23 +126,23 @@
     <section id="products" class="py-16 px-4">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-3xl font-bold text-center mb-4">选择适合你的方案</h2>
-            <p class="text-zinc-500 text-center mb-12">3 种方案，总有一款适合你</p>
+            <p class="text-gray-500 text-center mb-12">3 种方案，总有一款适合你</p>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
                 <!-- 入门包 -->
-                <div class="card-gradient rounded-3xl p-6 flex flex-col relative overflow-hidden hover:border-zinc-600 transition-all">
+                <div class="card-gradient rounded-3xl p-6 flex flex-col relative overflow-hidden hover:scale-[1.02] transition-all">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="text-3xl">🎣</span>
+                        <span class="text-3xl p-2 rounded-xl icon-glass">🎣</span>
                         <span class="bg-red-900/30 text-red-400 text-xs px-2 py-1 rounded-full border border-red-800/50">🔥 限时</span>
                     </div>
                     <h3 class="text-xl font-bold mb-2">入门包</h3>
-                    <p class="text-sm text-zinc-400 mb-4 leading-relaxed">你的第一只 AI 龙虾 — 30 分钟上手。经过实战验证的配置模板，跳过空白期。</p>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">你的第一只 AI 龙虾 — 30 分钟上手。经过实战验证的配置模板，跳过空白期。</p>
                     <ul class="space-y-2 mb-6 flex-grow">
-                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">✓</span> SOUL.md — AI 人格模板</li>
-                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">✓</span> IDENTITY.md</li>
-                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">✓</span> USER.md</li>
-                        <li class="text-xs text-zinc-500 pl-5">+ 5 more...</li>
+                        <li class="flex items-start text-sm text-emerald-500"><span class="mr-2">✓</span> SOUL.md — AI 人格模板</li>
+                        <li class="flex items-start text-sm text-emerald-500"><span class="mr-2">✓</span> IDENTITY.md</li>
+                        <li class="flex items-start text-sm text-emerald-500"><span class="mr-2">✓</span> USER.md</li>
+                        <li class="text-xs text-gray-500 pl-5">+ 5 more...</li>
                     </ul>
                     <div class="mt-auto">
                         <a href="starter.html" class="btn-primary w-full py-3 rounded-2xl font-bold text-white flex justify-between px-5 items-center">
@@ -127,19 +155,19 @@
                 <!-- Bundle 套餐 -->
                 <div class="card-gradient rounded-3xl p-6 flex flex-col relative overflow-hidden border-red-500/30 glow-red scale-105 z-10">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="text-3xl">📦</span>
+                        <span class="text-3xl p-2 rounded-xl icon-glass">📦</span>
                         <div class="flex flex-col gap-1">
                             <span class="bg-green-900/30 text-green-400 text-xs px-2 py-1 rounded-full border border-green-800/50">💰 省 ¥289</span>
                             <span class="bg-zinc-800 text-zinc-300 text-[10px] px-2 py-1 rounded-full text-center">最佳套装</span>
                         </div>
                     </div>
                     <h3 class="text-xl font-bold mb-2">养虾户 Bundle</h3>
-                    <p class="text-sm text-zinc-400 mb-4 leading-relaxed">Persona + 40 页实战指南，一步到位。单买 ¥888，Bundle 只要 ¥599。</p>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">Persona + 40 页实战指南，一步到位。单买 ¥888，Bundle 只要 ¥599。</p>
                     <ul class="space-y-2 mb-6 flex-grow">
-                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">🦞</span> 养虾户 Persona 完整包</li>
-                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">📖</span> 40+ 页 PDF 实战指南</li>
-                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">✓</span> OpenClaw 完整教程</li>
-                        <li class="text-xs text-zinc-500 pl-5">+ 5 more...</li>
+                        <li class="flex items-start text-sm text-emerald-500"><span class="mr-2">🦞</span> 养虾户 Persona 完整包</li>
+                        <li class="flex items-start text-sm text-emerald-500"><span class="mr-2">📖</span> 40+ 页 PDF 实战指南</li>
+                        <li class="flex items-start text-sm text-emerald-500"><span class="mr-2">✓</span> OpenClaw 完整教程</li>
+                        <li class="text-xs text-gray-500 pl-5">+ 5 more...</li>
                     </ul>
                     <div class="mt-auto">
                         <a href="bundle.html" class="btn-primary w-full py-3 rounded-2xl font-bold text-white flex justify-between px-5 items-center">
@@ -150,18 +178,18 @@
                 </div>
 
                 <!-- Persona 包 -->
-                <div class="card-gradient rounded-3xl p-6 flex flex-col relative overflow-hidden hover:border-zinc-600 transition-all">
+                <div class="card-gradient rounded-3xl p-6 flex flex-col relative overflow-hidden hover:scale-[1.02] transition-all">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="text-3xl">🦞</span>
+                        <span class="text-3xl p-2 rounded-xl icon-glass">🦞</span>
                         <span class="bg-zinc-800 text-zinc-300 text-xs px-2 py-1 rounded-full">核心产品</span>
                     </div>
                     <h3 class="text-xl font-bold mb-2">养虾户 Persona</h3>
-                    <p class="text-sm text-zinc-400 mb-4 leading-relaxed">经过数月真实生产环境验证的 Crypto AI Agent 人格。不是通用 Prompt —— 是一个完整的操作系统。</p>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">经过数月真实生产环境验证的 Crypto AI Agent 人格。不是通用 Prompt —— 是一个完整的操作系统。</p>
                     <ul class="space-y-2 mb-6 flex-grow">
-                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">✓</span> 完整 SOUL.md</li>
-                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">✓</span> IDENTITY + USER + HEARTBEAT</li>
-                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">✓</span> ShadowOps Manual</li>
-                        <li class="text-xs text-zinc-500 pl-5">+ 8 more...</li>
+                        <li class="flex items-start text-sm text-emerald-500"><span class="mr-2">✓</span> 完整 SOUL.md</li>
+                        <li class="flex items-start text-sm text-emerald-500"><span class="mr-2">✓</span> IDENTITY + USER + HEARTBEAT</li>
+                        <li class="flex items-start text-sm text-emerald-500"><span class="mr-2">✓</span> ShadowOps Manual</li>
+                        <li class="text-xs text-gray-500 pl-5">+ 8 more...</li>
                     </ul>
                     <div class="mt-auto">
                         <a href="persona.html" class="btn-primary w-full py-3 rounded-2xl font-bold text-white flex justify-between px-5 items-center">
@@ -175,30 +203,30 @@
         </div>
     </section>
 
-    <!-- Features -->
-    <section class="py-16 px-4 bg-zinc-900/50">
+    <!-- 能做什么 -->
+    <section class="section-bg py-16 px-4">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-2xl font-bold text-center mb-12">能做什么</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="text-center p-4">
-                    <div class="text-3xl mb-2">📰</div>
+                    <div class="text-3xl mb-2 p-2 rounded-xl icon-glass">📰</div>
                     <h3 class="font-semibold mb-1">自动新闻推送</h3>
-                    <p class="text-xs text-zinc-500">每天早上自动推送</p>
+                    <p class="text-xs text-gray-500">每天早上自动推送</p>
                 </div>
                 <div class="text-center p-4">
-                    <div class="text-3xl mb-2">📈</div>
+                    <div class="text-3xl mb-2 p-2 rounded-xl icon-glass">📈</div>
                     <h3 class="font-semibold mb-1">行情监控</h3>
-                    <p class="text-xs text-zinc-500">7×24 小时监控</p>
+                    <p class="text-xs text-gray-500">7×24 小时监控</p>
                 </div>
                 <div class="text-center p-4">
-                    <div class="text-3xl mb-2">⏰</div>
+                    <div class="text-3xl mb-2 p-2 rounded-xl icon-glass">⏰</div>
                     <h3 class="font-semibold mb-1">定时提醒</h3>
-                    <p class="text-xs text-zinc-500">自定义提醒</p>
+                    <p class="text-xs text-gray-500">自定义提醒</p>
                 </div>
                 <div class="text-center p-4">
-                    <div class="text-3xl mb-2">💬</div>
+                    <div class="text-3xl mb-2 p-2 rounded-xl icon-glass">💬</div>
                     <h3 class="font-semibold mb-1">Telegram 直连</h3>
-                    <p class="text-xs text-zinc-500">随时对话 AI</p>
+                    <p class="text-xs text-gray-500">随时对话 AI</p>
                 </div>
             </div>
         </div>
@@ -214,35 +242,35 @@
             </div>
             <div class="flex flex-wrap justify-center gap-4 mb-4">
                 <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                    <span class="text-2xl">🦞</span>
+                    <span class="text-2xl p-2 rounded-xl icon-glass">🦞</span>
                     <div>
                         <div class="font-bold text-sm">OpenClaw</div>
                         <div class="text-xs text-gray-500">AI Agent Platform</div>
                     </div>
                 </div>
                 <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                    <span class="text-2xl">💰</span>
+                    <span class="text-2xl p-2 rounded-xl icon-glass">💰</span>
                     <div>
                         <div class="font-bold text-sm">Bankr</div>
                         <div class="text-xs text-gray-500">Crypto Operations</div>
                     </div>
                 </div>
                 <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                    <span class="text-2xl">🧠</span>
+                    <span class="text-2xl p-2 rounded-xl icon-glass">🧠</span>
                     <div>
                         <div class="font-bold text-sm">Claude</div>
                         <div class="text-xs text-gray-500">Anthropic AI</div>
                     </div>
                 </div>
                 <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                    <span class="text-2xl">⚡</span>
+                    <span class="text-2xl p-2 rounded-xl icon-glass">⚡</span>
                     <div>
                         <div class="font-bold text-sm">GPT-4</div>
                         <div class="text-xs text-gray-500">OpenAI</div>
                     </div>
                 </div>
                 <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                    <span class="text-2xl">🎬</span>
+                    <span class="text-2xl p-2 rounded-xl icon-glass">🎬</span>
                     <div>
                         <div class="font-bold text-sm">Seedance</div>
                         <div class="text-xs text-gray-500">Video Generation</div>
@@ -251,21 +279,21 @@
             </div>
             <div class="flex flex-wrap justify-center gap-4">
                 <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                    <span class="text-2xl">📰</span>
+                    <span class="text-2xl p-2 rounded-xl icon-glass">📰</span>
                     <div>
                         <div class="font-bold text-sm">ReadX</div>
                         <div class="text-xs text-gray-500">Content Pipeline</div>
                     </div>
                 </div>
                 <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                    <span class="text-2xl">💬</span>
+                    <span class="text-2xl p-2 rounded-xl icon-glass">💬</span>
                     <div>
                         <div class="font-bold text-sm">Telegram</div>
                         <div class="text-xs text-gray-500">Bot Interface</div>
                     </div>
                 </div>
                 <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                    <span class="text-2xl">▲</span>
+                    <span class="text-2xl p-2 rounded-xl icon-glass">▲</span>
                     <div>
                         <div class="font-bold text-sm">Next.js</div>
                         <div class="text-xs text-gray-500">Web Framework</div>
@@ -276,11 +304,11 @@
     </section>
 
     <!-- 社区 -->
-    <section class="py-16 px-4 bg-zinc-900/30">
+    <section class="section-bg py-16 px-4">
         <div class="max-w-2xl mx-auto text-center">
             <h2 class="text-2xl font-bold mb-4">加入社区</h2>
-            <p class="text-zinc-400 mb-8">和 AI Agent 爱好者一起交流、分享 Alpha</p>
-            <a href="https://t.me/MoBai_BTC" target="_blank" class="btn-primary inline-flex items-center gap-2 px-8 py-3 rounded-full font-semibold">
+            <p class="text-gray-400 mb-8">和 AI Agent 爱好者一起交流、分享 Alpha</p>
+            <a href="https://t.me/MoBai_BTC" target="_blank" class="btn-primary inline-flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-white">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-1.942 9.156c-.145.651-.533.811-1.077.505l-2.958-2.18-1.427 1.373c-.158.158-.29.29-.594.29l.213-3.024 5.502-4.97c.239-.213-.052-.331-.371-.119l-6.8 4.282-2.932-.916c-.637-.199-.649-.637.133-.942l11.45-4.413c.53-.199 1 .123.796 1.158z"/>
                 </svg>
@@ -294,8 +322,8 @@
         <div class="max-w-xl mx-auto text-center">
             <h3 class="text-xl font-bold mb-4">📩 联系我们</h3>
             <p class="text-2xl font-bold text-red-500 mb-2">微信：990309129</p>
-            <p class="text-sm text-zinc-500 mb-6">添加时请备注"养虾"</p>
-            <p class="text-zinc-600 text-sm">© 2026 养虾户 mini鑫</p>
+            <p class="text-gray-500 text-sm mb-6">添加时请备注"养虾"</p>
+            <p class="text-gray-500 text-sm">© 2026 养虾户 mini鑫</p>
         </div>
     </footer>
 </body>

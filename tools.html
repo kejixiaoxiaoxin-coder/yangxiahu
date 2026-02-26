@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +7,27 @@
     <title>技术栈 - 养虾户</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
         body { 
-            background-color: #000; 
-            color: #fff; 
-            font-family: 'Inter', sans-serif; 
-            overflow-x: hidden;
+            background-color: #0a0a0a; 
+            color: #e5e5e5; 
+            font-family: 'Inter', sans-serif;
         }
-        .bg-decoration-text { 
-            position: absolute; 
-            font-size: 18vw; 
-            font-weight: 900; 
-            color: rgba(255, 255, 255, 0.03); 
-            z-index: 0; 
-            pointer-events: none; 
-            line-height: 1; 
+        
+        .header-bg {
+            background-color: #0a0a0a;
+            border-color: #27272a;
         }
+        
+        .nav-link {
+            color: #9ca3af;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #fff;
+        }
+        
         .tool-capsule { 
             background: rgba(255, 255, 255, 0.05); 
             border: 1px solid rgba(255, 255, 255, 0.1); 
@@ -33,93 +39,110 @@
             border-color: rgba(255, 255, 255, 0.3); 
             transform: translateY(-3px); 
         }
+        
+        .icon-glass { 
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+        }
+        
+        .section-bg {
+            background-color: rgba(24, 24, 27, 0.5);
+        }
+        
+        .bg-decoration-text { 
+            position: absolute; 
+            font-size: 18vw; 
+            font-weight: 900; 
+            color: rgba(255, 255, 255, 0.03); 
+            z-index: 0; 
+            pointer-events: none; 
+            line-height: 1; 
+        }
     </style>
 </head>
 <body class="overflow-x-hidden min-h-screen flex flex-col items-center py-20">
     <!-- Background Text -->
     <div class="bg-decoration-text left-[-5%] bottom-[10%] uppercase">Tools</div>
     
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Header -->
+    <header class="header-bg border-b fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-2">
-                <span class="text-xl">🦞</span>
-                <span class="font-bold tracking-tight">养虾户</span>
+                <span class="text-2xl p-2 rounded-xl icon-glass">🦐</span>
+                <span class="text-xl font-bold">养虾户</span>
             </a>
-            <div class="hidden md:flex gap-6 text-sm text-gray-400">
-                <a href="index.html" class="hover:text-white transition">首页</a>
-                <a href="tools.html" class="text-white transition">技术栈</a>
-                <a href="join.html" class="hover:text-white transition">社区</a>
-                <a href="#contact" class="hover:text-white transition">联系</a>
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="nav-link text-sm">首页</a>
+                <a href="index.html#products" class="nav-link text-sm">产品</a>
+                <a href="tools.html" class="nav-link text-sm">技术栈</a>
+                <a href="join.html" class="nav-link text-sm">社区</a>
+                <a href="#contact" class="nav-link text-sm">联系我们</a>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Title -->
-    <div class="text-center mb-16 z-10">
+    <div class="text-center mb-16 z-10 pt-12">
         <h2 class="text-5xl font-bold mb-4 tracking-tight">技术栈</h2>
-        <p class="text-gray-500 text-xl font-light">我的工具箱</p>
+        <p class="text-gray-400 text-xl font-light">我的工具箱</p>
     </div>
 
     <!-- Tools Grid -->
     <div class="max-w-5xl w-full px-6 z-10">
-        <!-- Row 1 -->
         <div class="flex flex-wrap justify-center gap-4 mb-4">
             <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                <span class="text-2xl">🦞</span>
+                <span class="text-2xl p-2 rounded-xl icon-glass">🦞</span>
                 <div>
                     <div class="font-bold text-sm">OpenClaw</div>
                     <div class="text-xs text-gray-500">AI Agent Platform</div>
                 </div>
             </div>
             <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                <span class="text-2xl">💰</span>
+                <span class="text-2xl p-2 rounded-xl icon-glass">💰</span>
                 <div>
                     <div class="font-bold text-sm">Bankr</div>
                     <div class="text-xs text-gray-500">Crypto Operations</div>
                 </div>
             </div>
             <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                <span class="text-2xl">🧠</span>
+                <span class="text-2xl p-2 rounded-xl icon-glass">🧠</span>
                 <div>
                     <div class="font-bold text-sm">Claude</div>
                     <div class="text-xs text-gray-500">Anthropic AI</div>
                 </div>
             </div>
             <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                <span class="text-2xl">⚡</span>
+                <span class="text-2xl p-2 rounded-xl icon-glass">⚡</span>
                 <div>
                     <div class="font-bold text-sm">GPT-4</div>
                     <div class="text-xs text-gray-500">OpenAI</div>
                 </div>
             </div>
             <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                <span class="text-2xl">🎬</span>
+                <span class="text-2xl p-2 rounded-xl icon-glass">🎬</span>
                 <div>
                     <div class="font-bold text-sm">Seedance</div>
                     <div class="text-xs text-gray-500">Video Generation</div>
                 </div>
             </div>
         </div>
-        
-        <!-- Row 2 -->
         <div class="flex flex-wrap justify-center gap-4">
             <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                <span class="text-2xl">📰</span>
+                <span class="text-2xl p-2 rounded-xl icon-glass">📰</span>
                 <div>
                     <div class="font-bold text-sm">ReadX</div>
                     <div class="text-xs text-gray-500">Content Pipeline</div>
                 </div>
             </div>
             <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                <span class="text-2xl">💬</span>
+                <span class="text-2xl p-2 rounded-xl icon-glass">💬</span>
                 <div>
                     <div class="font-bold text-sm">Telegram</div>
                     <div class="text-xs text-gray-500">Bot Interface</div>
                 </div>
             </div>
             <div class="tool-capsule flex items-center gap-4 px-6 py-3 rounded-full">
-                <span class="text-2xl">▲</span>
+                <span class="text-2xl p-2 rounded-xl icon-glass">▲</span>
                 <div>
                     <div class="font-bold text-sm">Next.js</div>
                     <div class="text-xs text-gray-500">Web Framework</div>
@@ -129,10 +152,10 @@
     </div>
 
     <!-- Footer -->
-    <footer id="contact" class="mt-20 py-8 text-center text-gray-600 text-sm z-10">
+    <footer id="contact" class="mt-20 py-8 text-center border-t border-zinc-800 w-full">
         <p class="text-2xl font-bold text-red-500 mb-2">微信：990309129</p>
-        <p class="text-sm text-gray-500">添加时请备注"养虾"</p>
-        <p class="mt-8">© 2026 养虾户 🦐</p>
+        <p class="text-gray-400 text-sm">添加时请备注"养虾"</p>
+        <p class="text-gray-500 text-sm mt-8">© 2026 养虾户 mini鑫</p>
     </footer>
 </body>
 </html>
