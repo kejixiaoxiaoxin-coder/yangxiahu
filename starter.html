@@ -3,110 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>入门包 - 养虾户</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif; line-height: 1.6; color: #333; }
-        
-        nav { padding: 16px 5%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: bold; color: #FF6B35; text-decoration: none; }
-        .logo span { font-size: 32px; }
-        .btn { display: inline-block; padding: 10px 24px; background: #0ea5e9; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 500; }
-        
-        .hero { padding: 80px 5% 60px; text-align: center; background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%); color: #fff; }
-        .hero h1 { font-size: 42px; margin-bottom: 16px; }
-        .hero p { font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto 24px; }
-        .hero .price { font-size: 56px; font-weight: bold; margin-bottom: 24px; }
-        .hero .price span { font-size: 18px; font-weight: normal; opacity: 0.9; }
-        
-        .content { padding: 60px 5%; max-width: 900px; margin: 0 auto; }
-        .section { background: #fff; border-radius: 20px; padding: 30px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .section h2 { font-size: 24px; margin-bottom: 20px; color: #333; padding-bottom: 12px; border-bottom: 2px solid #0ea5e9; }
-        .section ul { list-style: none; }
-        .section li { padding: 12px 0; font-size: 15px; color: #555; }
-        .section li::before { content: '✓ '; color: #0ea5e9; font-weight: bold; font-size: 18px; }
-        
-        .gift { background: linear-gradient(135deg, #fff8f0 0%, #fff 100%); border: 2px solid #FF6B35; }
-        .gift h3 { color: #FF6B35; font-size: 18px; margin-bottom: 16px; }
-        
-        .cta { text-align: center; padding: 40px 5%; background: #f8f9fa; }
-        .cta .btn { padding: 16px 48px; font-size: 18px; }
-        
-        footer { padding: 40px 5%; background: #1a1a1a; color: #fff; text-align: center; }
-        footer .wechat { font-size: 20px; color: #FF6B35; font-weight: bold; }
-        
-        .back { display: inline-block; margin-bottom: 20px; color: #0ea5e9; text-decoration: none; }
-        .back:hover { text-decoration: underline; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { background-color: #0a0a0a; color: #e5e5e5; font-family: 'Inter', sans-serif; }
+        .card-gradient { background: linear-gradient(145deg, #1a1a1a, #0f0f0f); border: 1px solid #262626; }
+        .btn-primary { background-color: #0ea5e9; transition: all 0.3s ease; }
+        .btn-primary:hover { background-color: #0284c7; transform: translateY(-2px); }
     </style>
 </head>
-<body>
-    <nav>
-        <div class="nav-content">
-            <a href="index.html" class="logo"><span>🦐</span> 养虾户</a>
-            <a href="#contact" class="btn">立即咨询</a>
+<body class="min-h-screen">
+    <header class="border-b border-zinc-800">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-2xl">🦐</span>
+                <span class="text-xl font-bold">养虾户</span>
+            </a>
+            <a href="#contact" class="btn-primary px-6 py-2 rounded-full text-sm font-medium">立即咨询</a>
         </div>
-    </nav>
-    
-    <section class="hero">
-        <h1>🦐 入门包</h1>
-        <p>你的第一只 AI 龙虾 — 30 分钟上手</p>
-        <div class="price">¥99 <span>/ 仅配置</span></div>
-        <a href="#contact" class="btn" style="background: #fff; color: #0ea5e9;">立即咨询</a>
+    </header>
+
+    <section class="py-16 px-4 text-center bg-gradient-to-b from-blue-900/20 to-transparent">
+        <div class="max-w-2xl mx-auto">
+            <span class="text-5xl mb-4 block">🎣</span>
+            <h1 class="text-4xl font-bold mb-4">入门包</h1>
+            <p class="text-zinc-400 text-lg mb-6">你的第一只 AI 龙虾 — 30 分钟上手</p>
+            <div class="text-5xl font-bold text-blue-400 mb-6">¥9.9</div>
+            <a href="#contact" class="btn-primary px-10 py-4 rounded-full font-bold text-lg inline-block">立即咨询</a>
+        </div>
     </section>
-    
-    <div class="content">
-        <a href="index.html" class="back">← 返回产品列表</a>
-        
-        <div class="section">
-            <h2>✨ 核心内容</h2>
-            <ul>
-                <li>5 个经过实战验证的核心配置模板</li>
-                <li>SOUL.md、USER.md 等核心文件</li>
-                <li>30 分钟一对一指导</li>
-                <li>复制、填入信息、即可启动</li>
-                <li>中英双语配置文件</li>
-            </ul>
+
+    <section class="py-12 px-4">
+        <div class="max-w-3xl mx-auto space-y-6">
+            <a href="index.html" class="inline-flex items-center text-zinc-500 hover:text-white transition">
+                ← 返回产品列表
+            </a>
+
+            <div class="card-gradient rounded-3xl p-8">
+                <h2 class="text-2xl font-bold mb-6 pb-4 border-b border-zinc-800">✨ 核心内容</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start text-emerald-400"><span class="mr-3 text-lg">✓</span> 5 个经过实战验证的核心配置模板</li>
+                    <li class="flex items-start text-emerald-400"><span class="mr-3 text-lg">✓</span> SOUL.md、USER.md 等核心文件</li>
+                    <li class="flex items-start text-emerald-400"><span class="mr-3 text-lg">✓</span> 30 分钟一对一指导</li>
+                    <li class="flex items-start text-emerald-400"><span class="mr-3 text-lg">✓</span> 复制、填入信息、即可启动</li>
+                    <li class="flex items-start text-emerald-400"><span class="mr-3 text-lg">✓</span> 中英双语配置文件</li>
+                </ul>
+            </div>
+
+            <div class="card-gradient rounded-3xl p-8 border-amber-500/30">
+                <h2 class="text-2xl font-bold mb-6 pb-4 border-b border-zinc-800">🎁 额外赠送</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start text-emerald-400"><span class="mr-3 text-lg">🎁</span> Alpha Matrix Basic - KOL 动态监控基础版</li>
+                    <li class="flex items-start text-emerald-400"><span class="mr-3 text-lg">🎁</span> Daily Briefing - 每日简报</li>
+                    <li class="flex items-start text-emerald-400"><span class="mr-3 text-lg">🎁</span> 6 个 Cron Job 模板</li>
+                </ul>
+            </div>
+
+            <div class="card-gradient rounded-3xl p-8">
+                <h2 class="text-2xl font-bold mb-6 pb-4 border-b border-zinc-800">📖 适合人群</h2>
+                <ul class="space-y-3 text-zinc-300">
+                    <li>• 刚接触 OpenClaw 的新用户</li>
+                    <li>• 想要快速上手的零基础用户</li>
+                    <li>• 预算有限但想体验 AI 助手</li>
+                </ul>
+            </div>
+
+            <div class="card-gradient rounded-3xl p-8">
+                <h2 class="text-2xl font-bold mb-6 pb-4 border-b border-zinc-800">❓ 常见问题</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-semibold mb-2">Q: 需要技术基础？</h4>
+                        <p class="text-zinc-400 text-sm">A: 不需要！会用微信就行</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-2">Q: 配置要多久？</h4>
+                        <p class="text-zinc-400 text-sm">A: 30 分钟内完成</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-2">Q: 后续有问题？</h4>
+                        <p class="text-zinc-400 text-sm">A: 7 天免费答疑</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="section gift">
-            <h3>🎁 额外赠送</h3>
-            <ul>
-                <li>Alpha Matrix Basic - KOL 动态监控基础版</li>
-                <li>Daily Briefing - 每日简报（天气 + 日历+Crypto 价格）</li>
-                <li>6 个 Cron Job 模板</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>📖 适合人群</h2>
-            <ul>
-                <li>刚接触 OpenClaw 的新用户</li>
-                <li>想要快速上手的零基础用户</li>
-                <li>预算有限但想体验 AI 助手</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>❓ 常见问题</h2>
-            <ul>
-                <li><strong>Q: 需要技术基础？</strong><br>A: 不需要！会用微信就行</li>
-                <li><strong>Q: 配置要多久？</strong><br>A: 30 分钟内完成</li>
-                <li><strong>Q: 后续有问题？</strong><br>A: 7 天免费答疑</li>
-            </ul>
-        </div>
-    </div>
-    
-    <section class="cta" id="contact">
-        <h2 style="margin-bottom: 20px;">📩 立即咨询</h2>
-        <p style="font-size: 24px; color: #FF6B35; font-weight: bold; margin-bottom: 10px;">微信：990309129</p>
-        <p style="color: #666;">添加时请备注"养虾"</p>
-        <a href="https://weixin.qq.com/" class="btn" style="margin-top: 20px;">添加微信</a>
     </section>
-    
-    <footer>
-        <p class="wechat">微信：990309129</p>
-        <p style="margin-top: 20px; opacity: 0.7;">© 2026 养虾户 🦐</p>
+
+    <footer id="contact" class="py-12 px-4 border-t border-zinc-800 mt-12">
+        <div class="max-w-xl mx-auto text-center">
+            <h3 class="text-xl font-bold mb-4">📩 立即咨询</h3>
+            <p class="text-2xl font-bold text-red-500 mb-2">微信：990309129</p>
+            <p class="text-sm text-zinc-500">添加时请备注"养虾"</p>
+            <p class="text-zinc-600 text-sm mt-8">© 2026 养虾户 🦐</p>
+        </div>
     </footer>
 </body>
 </html>

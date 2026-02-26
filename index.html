@@ -3,213 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>养虾户 - OpenClaw 配置服务</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>养虾户 AI Agent - 定价页</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif; line-height: 1.6; color: #333; }
-        
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 5%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 100; }
-        .logo { font-size: 24px; font-weight: bold; color: #FF6B35; text-decoration: none; }
-        .logo span { font-size: 32px; }
-        .nav-links a { text-decoration: none; color: #333; margin-left: 24px; font-size: 14px; }
-        .btn { display: inline-block; padding: 10px 24px; background: #FF6B35; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 500; transition: all 0.3s; }
-        .btn:hover { background: #e55a2b; }
-        
-        .hero { padding: 140px 5% 60px; text-align: center; background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%); }
-        .hero h1 { font-size: 48px; margin-bottom: 16px; }
-        .hero h1 span { color: #FF6B35; }
-        .hero p { font-size: 18px; color: #666; max-width: 600px; margin: 0 auto 24px; }
-        .badge { display: inline-block; background: #fff3e0; color: #FF6B35; padding: 6px 16px; border-radius: 20px; font-size: 13px; margin-bottom: 20px; }
-        .mascot { font-size: 100px; animation: float 3s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-        
-        .products { padding: 60px 5%; background: #fff; }
-        .section-title { text-align: center; font-size: 32px; margin-bottom: 40px; }
-        
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
-        
-        .product-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 2px solid #eee; transition: all 0.3s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); border-color: #FF6B35; }
-        
-        .card-header { padding: 24px; color: #fff; text-align: center; }
-        .card-header.starter { background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%); }
-        .card-header.bundle { background: linear-gradient(135deg, #FF6B35 0%, #ff8a5c 100%); position: relative; }
-        .card-header.bundle::after { content: '🔥 最热门'; position: absolute; top: -12px; right: 20px; background: #fff; color: #FF6B35; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: bold; }
-        .card-header.persona { background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%); }
-        .card-header.enterprise { background: linear-gradient(135deg, #10b981 0%, #34d399 100%); }
-        
-        .card-header h3 { font-size: 22px; margin-bottom: 8px; }
-        .card-header .price { font-size: 36px; font-weight: bold; }
-        .card-header .price span { font-size: 14px; font-weight: normal; opacity: 0.9; }
-        .card-header .price .original { font-size: 16px; text-decoration: line-through; opacity: 0.7; margin-right: 8px; }
-        .card-header .price .save { font-size: 12px; background: #fff; color: #FF6B35; padding: 2px 8px; border-radius: 8px; font-weight: bold; margin-left: 8px; }
-        
-        .card-content { padding: 20px; }
-        .card-content ul { list-style: none; }
-        .card-content li { padding: 6px 0; font-size: 14px; color: #555; }
-        .card-content li::before { content: '✓ '; color: #FF6B35; font-weight: bold; }
-        
-        .card-footer { padding: 0 20px 20px; text-align: center; }
-        .card-footer .btn { width: 100%; }
-        
-        .features { padding: 60px 5%; background: #f8f9fa; }
-        .section-title { text-align: center; font-size: 32px; margin-bottom: 40px; }
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
-        .feature-card { padding: 24px; background: #fff; border-radius: 16px; text-align: center; }
-        .feature-icon { font-size: 36px; margin-bottom: 12px; }
-        .feature-card h3 { font-size: 16px; margin-bottom: 8px; }
-        .feature-card p { color: #666; font-size: 13px; }
-        
-        .testimonials { padding: 60px 5%; background: #fff; }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
-        .testimonial { padding: 20px; background: #f8f9fa; border-radius: 12px; }
-        .testimonial p { font-size: 14px; color: #555; font-style: italic; margin-bottom: 12px; }
-        
-        .faq { padding: 60px 5%; background: #f8f9fa; }
-        .faq-grid { max-width: 700px; margin: 0 auto; }
-        .faq-item { background: #fff; padding: 16px; border-radius: 10px; margin-bottom: 10px; }
-        .faq-item h4 { font-size: 14px; margin-bottom: 6px; }
-        .faq-item p { color: #666; font-size: 13px; }
-        
-        footer { padding: 40px 5%; background: #1a1a1a; color: #fff; text-align: center; }
-        footer h3 { font-size: 18px; margin-bottom: 16px; }
-        footer .wechat { font-size: 20px; color: #FF6B35; font-weight: bold; }
-        
-        @media (max-width: 768px) { .hero h1 { font-size: 32px; } .nav-links { display: none; } }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { 
+            background-color: #0a0a0a; 
+            color: #e5e5e5; 
+            font-family: 'Inter', sans-serif;
+        }
+        .card-gradient { 
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            border: 1px solid #262626;
+        }
+        .card-gradient:hover {
+            border-color: #3f3f46;
+        }
+        .btn-primary { 
+            background-color: #ef4444; 
+            transition: all 0.3s ease; 
+        }
+        .btn-primary:hover { 
+            background-color: #dc2626; 
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+        }
+        .glow-red {
+            box-shadow: 0 0 40px rgba(239, 68, 68, 0.15);
+        }
     </style>
 </head>
-<body>
-    <nav>
-        <a href="#" class="logo"><span>🦐</span> 养虾户</a>
-        <div class="nav-links">
-            <a href="#products">产品</a>
-            <a href="#features">功能</a>
-            <a href="#testimonials">评价</a>
-            <a href="#faq">FAQ</a>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">🦐</span>
+                <span class="text-xl font-bold">养虾户</span>
+            </div>
+            <a href="#contact" class="text-sm text-zinc-400 hover:text-white transition">联系我们</a>
         </div>
-        <a href="#contact" class="btn">立即咨询</a>
-    </nav>
-    
-    <section class="hero">
-        <div class="badge">🦐 让你的 AI 助手更聪明</div>
-        <div class="mascot">🦐</div>
-        <h1>让你的<span>AI助手</span>更聪明</h1>
-        <p>30 分钟配置好 OpenClaw AI助手<br>每天自动推送 AI 新闻、加密行情</p>
-        <a href="#products" class="btn">查看产品方案</a>
+    </header>
+
+    <!-- Hero -->
+    <section class="py-20 px-4 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                让你的 <span class="text-red-500">AI 助手</span> 更聪明
+            </h1>
+            <p class="text-zinc-400 text-lg mb-8">
+                30 分钟配置好 OpenClaw AI 助手<br>
+                每天自动推送 AI 新闻、加密行情
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#products" class="btn-primary px-8 py-3 rounded-full font-semibold">
+                    查看方案
+                </a>
+            </div>
+        </div>
     </section>
-    
-    <section class="products" id="products">
-        <h2 class="section-title">选择适合你的方案</h2>
-        
-        <div class="product-grid">
-            <!-- 入门包 -->
-            <a href="starter.html" class="product-card">
-                <div class="card-header starter">
-                    <h3>🦐 入门包</h3>
-                    <div class="price">¥99 <span>/ 仅配置</span></div>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>5 个核心配置模板</li>
-                        <li>30 分钟一对一指导</li>
-                        <li>中英双语配置</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <div class="btn">立即咨询</div>
-                </div>
-            </a>
+
+    <!-- Products -->
+    <section id="products" class="py-16 px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-4">选择适合你的方案</h2>
+            <p class="text-zinc-500 text-center mb-12">3 种方案，总有一款适合你</p>
             
-            <!-- Bundle 套餐 -->
-            <a href="bundle.html" class="product-card">
-                <div class="card-header bundle">
-                    <h3>🚀 Bundle 套餐</h3>
-                    <div class="price"><span class="original">¥888</span>¥599 <span class="save">省¥289</span></div>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>一步到位方案</li>
-                        <li>Persona + 40 页指南</li>
-                        <li>零基础友好</li>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- 入门包 -->
+                <div class="card-gradient rounded-3xl p-6 flex flex-col relative overflow-hidden hover:border-zinc-600 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-3xl">🎣</span>
+                        <div class="text-right flex flex-col gap-1">
+                            <span class="bg-red-900/30 text-red-400 text-xs px-2 py-1 rounded-full border border-red-800/50">🔥 限时</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">入门包</h3>
+                    <p class="text-sm text-zinc-400 mb-4 leading-relaxed">你的第一只 AI 龙虾 — 30 分钟上手。经过实战验证的配置模板，跳过空白期。</p>
+                    <ul class="space-y-2 mb-6 flex-grow">
+                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">✓</span> SOUL.md — AI 人格模板</li>
+                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">✓</span> IDENTITY.md</li>
+                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">✓</span> USER.md</li>
+                        <li class="text-xs text-zinc-500 pl-5">+ 5 more...</li>
                     </ul>
+                    <div class="mt-auto">
+                        <a href="starter.html" class="btn-primary w-full py-3 rounded-2xl font-bold text-white flex justify-between px-5 items-center">
+                            <span>查看详情</span>
+                            <span class="text-sm opacity-75">¥9.9</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <div class="btn">立即咨询</div>
-                </div>
-            </a>
-            
-            <!-- Persona 包 -->
-            <a href="persona.html" class="product-card">
-                <div class="card-header persona">
-                    <h3>🧠 Persona 包</h3>
-                    <div class="price">¥699 <span>/ 完整版</span></div>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>Crypto AI 人格</li>
-                        <li>5 个 Skills</li>
-                        <li>三层记忆系统</li>
+
+                <!-- Bundle 套餐 -->
+                <div class="card-gradient rounded-3xl p-6 flex flex-col relative overflow-hidden border-red-500/30 glow-red scale-105 z-10">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-3xl">📦</span>
+                        <div class="text-right flex flex-col gap-1">
+                            <span class="bg-green-900/30 text-green-400 text-xs px-2 py-1 rounded-full border border-green-800/50">💰 省 ¥289</span>
+                            <span class="bg-zinc-800 text-zinc-300 text-[10px] px-2 py-1 rounded-full text-center">最佳套装</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">养虾户 Bundle</h3>
+                    <p class="text-sm text-zinc-400 mb-4 leading-relaxed">Persona + 40 页实战指南，一步到位。单买 ¥888，Bundle 只要 ¥599。</p>
+                    <ul class="space-y-2 mb-6 flex-grow">
+                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">🦞</span> 养虾户 Persona 完整包</li>
+                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">📖</span> 40+ 页 PDF 实战指南</li>
+                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">✓</span> OpenClaw 完整教程</li>
+                        <li class="text-xs text-zinc-500 pl-5">+ 5 more...</li>
                     </ul>
+                    <div class="mt-auto">
+                        <a href="bundle.html" class="btn-primary w-full py-3 rounded-2xl font-bold text-white flex justify-between px-5 items-center">
+                            <span>查看详情</span>
+                            <span class="text-sm opacity-75">¥599</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <div class="btn" style="background:#9333ea;">立即咨询</div>
-                </div>
-            </a>
-            
-            <!-- 企业版 -->
-            <a href="enterprise.html" class="product-card">
-                <div class="card-header enterprise">
-                    <h3>🏢 企业版</h3>
-                    <div class="price">¥999 <span>/ 团队部署</span></div>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>团队多账号部署</li>
-                        <li>API 接口对接</li>
-                        <li>1 年专属客服</li>
+
+                <!-- Persona 包 -->
+                <div class="card-gradient rounded-3xl p-6 flex flex-col relative overflow-hidden hover:border-zinc-600 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-3xl">🦞</span>
+                        <span class="bg-zinc-800 text-zinc-300 text-xs px-2 py-1 rounded-full">核心产品</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">养虾户 Persona</h3>
+                    <p class="text-sm text-zinc-400 mb-4 leading-relaxed">经过数月真实生产环境验证的 Crypto AI Agent 人格。不是通用 Prompt —— 是一个完整的操作系统。</p>
+                    <ul class="space-y-2 mb-6 flex-grow">
+                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">✓</span> 完整 SOUL.md</li>
+                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">✓</span> IDENTITY + USER + HEARTBEAT</li>
+                        <li class="flex items-start text-sm text-emerald-400"><span class="mr-2">✓</span> ShadowOps Manual</li>
+                        <li class="text-xs text-zinc-500 pl-5">+ 8 more...</li>
                     </ul>
+                    <div class="mt-auto">
+                        <a href="persona.html" class="btn-primary w-full py-3 rounded-2xl font-bold text-white flex justify-between px-5 items-center">
+                            <span>查看详情</span>
+                            <span class="text-sm opacity-75">¥299</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <div class="btn" style="background:#10b981;">立即咨询</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16 px-4 bg-zinc-900/50">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl font-bold text-center mb-12">能做什么</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-4">
+                    <div class="text-3xl mb-2">📰</div>
+                    <h3 class="font-semibold mb-1">自动新闻推送</h3>
+                    <p class="text-xs text-zinc-500">每天早上自动推送</p>
                 </div>
-            </a>
+                <div class="text-center p-4">
+                    <div class="text-3xl mb-2">📈</div>
+                    <h3 class="font-semibold mb-1">行情监控</h3>
+                    <p class="text-xs text-zinc-500">7×24 小时监控</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="text-3xl mb-2">⏰</div>
+                    <h3 class="font-semibold mb-1">定时提醒</h3>
+                    <p class="text-xs text-zinc-500">自定义提醒</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="text-3xl mb-2">💬</div>
+                    <h3 class="font-semibold mb-1">Telegram 直连</h3>
+                    <p class="text-xs text-zinc-500">随时对话 AI</p>
+                </div>
+            </div>
         </div>
     </section>
-    
-    <section class="features" id="features">
-        <h2 class="section-title">能做什么</h2>
-        <div class="feature-grid">
-            <div class="feature-card"><div class="feature-icon">📰</div><h3>自动新闻推送</h3><p>每天早上自动推送</p></div>
-            <div class="feature-card"><div class="feature-icon">📈</div><h3>行情监控</h3><p>7×24 小时监控</p></div>
-            <div class="feature-card"><div class="feature-icon">⏰</div><h3>定时提醒</h3><p>自定义提醒</p></div>
-            <div class="feature-card"><div class="feature-icon">💬</div><h3>Telegram 直连</h3><p>随时对话 AI</p></div>
+
+        <div class="max-w-xl mx-auto text-center">
+            <h3 class="text-xl font-bold mb-4">📩 联系我们</h3>
+            <p class="text-2xl font-bold text-red-500 mb-2">微信：990309129</p>
+            <p class="text-sm text-zinc-500 mb-6">添加时请备注"养虾"</p>
+            <p class="text-zinc-600 text-sm">© 2026 养虾户 🦐</p>
         </div>
-    </section>
-    
-    <section class="testimonials" id="testimonials">
-        <h2 class="section-title">用户评价</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial"><p>"半小时就搞定了，每天自动推新闻，太省心！"</p><strong>@小明</strong></div>
-            <div class="testimonial"><p>"299 块花的值，专业的事交给专业的人。"</p><strong>@老王</strong></div>
-            <div class="testimonial"><p>"企业版团队协作，效率提升明显！"</p><strong>@王总</strong></div>
-        </div>
-    </section>
-    
-    <section class="faq" id="faq">
-        <h2 class="section-title">常见问题</h2>
-        <div class="faq-grid">
-            <div class="faq-item"><h4>Q: 需要技术基础？</h4><p>A: 不需要！小白也能用</p></div>
-            <div class="faq-item"><h4>Q: 配置要多久？</h4><p>A: 30 分钟内</p></div>
-            <div class="faq-item"><h4>Q: 后续有问题？</h4><p>A: 30 天免费答疑</p></div>
-            <div class="faq-item"><h4>Q: 可以退款？</h4><p>A: 7 天内无理由</p></div>
-        </div>
-    </section>
-    
-    <footer id="contact">
-        <h3>📩 联系我们</h3>
-        <p class="wechat">微信：990309129</p>
-        <p style="opacity: 0.7; font-size: 13px;">添加时请备注"养虾"</p>
-        <p style="margin-top: 30px;">© 2026 养虾户 🦐</p>
     </footer>
 </body>
 </html>
