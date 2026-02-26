@@ -95,7 +95,13 @@
         /* 吉祥物 */
         .mascot {
             margin: 40px auto;
-            font-size: 120px;
+            font-size: 150px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
         
         /* 功能 */
@@ -356,8 +362,9 @@
     <section class="hero">
         <div class="mascot">🦐</div>
         <h1>让你的<span>AI助手</span>更聪明</h1>
-        <p>帮你在30分钟内配置好OpenClaw AI助手，每天自动推送AI新闻、加密行情、定时提醒</p>
-        <a href="#pricing" class="btn">立即配置</a>
+        <p>30分钟配置好 OpenClaw AI助手<br>每天自动推送AI新闻、加密行情、定时提醒</p>
+        <a href="#pricing" class="btn">立即免费咨询</a>
+        <p style="margin-top: 20px; font-size: 14px; color: #999;">✅ 已有 50+ 用户配置成功</p>
     </section>
     
     <!-- 功能 -->
@@ -481,8 +488,14 @@
     
     <!-- 页脚 -->
     <footer id="contact">
-        <p>📧 微信：yangxiaohu2026</p>
-        <p style="margin-top: 20px;">© 2026 养虾户. 让AI助手走进每个人的生活 🦐</p>
+        <h2 style="color: #fff; margin-bottom: 30px;">📩 联系我们</h2>
+        <p style="font-size: 18px; margin-bottom: 20px;">微信：<strong style="color: #FF6B35;">yangxiaohu2026</strong></p>
+        <p style="font-size: 14px; opacity: 0.7; margin-bottom: 30px;">添加时请备注"配置"</p>
+        <div style="margin-top: 40px;">
+            <a href="#" style="color: #fff; margin: 0 15px; text-decoration: none;">使用条款</a>
+            <a href="#" style="color: #fff; margin: 0 15px; text-decoration: none;">隐私政策</a>
+        </div>
+        <p style="margin-top: 40px;">© 2026 养虾户. 让AI助手走进每个人的生活 🦐</p>
     </footer>
 </body>
 </html>
