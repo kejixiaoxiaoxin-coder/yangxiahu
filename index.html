@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>养虾户 - OpenClaw配置服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* 导航 */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF6B35;
+        }
+        
+        .logo span {
+            font-size: 32px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 30px;
+            font-size: 14px;
+        }
+        
+        .nav-links a:hover {
+            color: #FF6B35;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background: #FF6B35;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+        }
+        
+        /* Hero区域 */
+        .hero {
+            padding: 160px 5% 100px;
+            text-align: center;
+            background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+        
+        .hero h1 span {
+            color: #FF6B35;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        /* 吉祥物 */
+        .mascot {
+            margin: 40px auto;
+            font-size: 120px;
+        }
+        
+        /* 功能 */
+        .features {
+            padding: 80px 5%;
+            background: #fff;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* 价格 */
+        .pricing {
+            padding: 80px 5%;
+            background: #f8f9fa;
+        }
+        
+        .pricing h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .price-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .price-card:hover {
+            border-color: #FF6B35;
+            transform: scale(1.02);
+        }
+        
+        .price-card.popular {
+            border-color: #FF6B35;
+            position: relative;
+        }
+        
+        .price-card.popular::before {
+            content: '最热卖';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FF6B35;
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        
+        .price-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #FF6B35;
+            margin-bottom: 10px;
+        }
+        
+        .price span {
+            font-size: 16px;
+            color: #999;
+            font-weight: normal;
+        }
+        
+        .price-card ul {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .price-card li {
+            padding: 10px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .price-card li::before {
+            content: '✓';
+            color: #FF6B35;
+            margin-right: 10px;
+        }
+        
+        /* 评价 */
+        .testimonials {
+            padding: 80px 5%;
+            background: #fff;
+        }
+        
+        .testimonials h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }
+        
+        .testimonial p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial strong {
+            color: #333;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 80px 5%;
+            background: #f8f9fa;
+        }
+        
+        .faq h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+        
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: #fff;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .faq-item h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .faq-item p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* 页脚 */
+        footer {
+            padding: 40px 5%;
+            background: #1a1a1a;
+            color: #fff;
+            text-align: center;
+        }
+        
+        footer p {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+        
+        footer a {
+            color: #FF6B35;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航 -->
+    <nav>
+        <div class="logo"><span>🦐</span> 养虾户</div>
+        <div class="nav-links">
+            <a href="#features">功能</a>
+            <a href="#pricing">价格</a>
+            <a href="#testimonials">评价</a>
+            <a href="#faq">FAQ</a>
+        </div>
+        <a href="#pricing" class="btn">立即配置</a>
+    </nav>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <div class="mascot">🦐</div>
+        <h1>让你的<span>AI助手</span>更聪明</h1>
+        <p>帮你在30分钟内配置好OpenClaw AI助手，每天自动推送AI新闻、加密行情、定时提醒</p>
+        <a href="#pricing" class="btn">立即配置</a>
+    </section>
+    
+    <!-- 功能 -->
+    <section class="features" id="features">
+        <h2>功能特点</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📰</div>
+                <h3>自动新闻推送</h3>
+                <p>每天早上自动推送AI/加密货币新闻，不再错过重要资讯</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>行情监控</h3>
+                <p>7×24小时监控币圈交易信号，及时提醒买卖点</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h3>定时提醒</h3>
+                <p>自定义提醒，不错过任何重要时刻</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>Telegram直连</h3>
+                <p>通过Telegram直接对话AI，随时随地使用</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>安全可靠</h3>
+                <p>本地部署，数据隐私有保障</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>自动任务</h3>
+                <p>定时执行，解放双手</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 价格 -->
+    <section class="pricing" id="pricing">
+        <h2>价格方案</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>基础版</h3>
+                <div class="price">¥99</div>
+                <ul>
+                    <li>基础配置</li>
+                    <li>3个功能</li>
+                    <li>30分钟交付</li>
+                    <li>7天答疑</li>
+                </ul>
+                <a href="#contact" class="btn">立即购买</a>
+            </div>
+            <div class="price-card popular">
+                <h3>进阶版</h3>
+                <div class="price">¥299</div>
+                <ul>
+                    <li>个性化定制</li>
+                    <li>6个功能</li>
+                    <li>1小时交付</li>
+                    <li>30天答疑</li>
+                </ul>
+                <a href="#contact" class="btn">立即购买</a>
+            </div>
+            <div class="price-card">
+                <h3>企业版</h3>
+                <div class="price">¥999</div>
+                <ul>
+                    <li>团队部署</li>
+                    <li>无限功能</li>
+                    <li>定制开发</li>
+                    <li>1年专属客服</li>
+                </ul>
+                <a href="#contact" class="btn">立即购买</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 评价 -->
+    <section class="testimonials" id="testimonials">
+        <h2>用户评价</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>"原来AI助手配置这么简单！养虾户帮我半小时就搞定了，现在每天自动给我推新闻，省心太多了！"</p>
+                <strong>@小明</strong>
+            </div>
+            <div class="testimonial">
+                <p>"299块花的值！终于不用自己折腾了，专业的事交给专业的人。客服响应也很快。"</p>
+                <strong>@老王</strong>
+            </div>
+            <div class="testimonial">
+                <p>"企业版帮我部署了团队协作，现在公司人手一个AI助手，效率提升明显！"</p>
+                <strong>@王总</strong>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <h2>常见问题</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>Q: 需要什么技术基础？</h4>
+                <p>A: 不需要！小白也能用，会用微信就行</p>
+            </div>
+            <div class="faq-item">
+                <h4>Q: 配置需要多久？</h4>
+                <p>A: 基础配置30分钟内完成</p>
+            </div>
+            <div class="faq-item">
+                <h4>Q: 后续有问题怎么办？</h4>
+                <p>A: 30天免费答疑，长期VIP群服务</p>
+            </div>
+            <div class="faq-item">
+                <h4>Q: 可以退款吗？</h4>
+                <p>A: 7天内无理由退款</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer id="contact">
+        <p>📧 微信：yangxiaohu2026</p>
+        <p style="margin-top: 20px;">© 2026 养虾户. 让AI助手走进每个人的生活 🦐</p>
+    </footer>
+</body>
+</html>
